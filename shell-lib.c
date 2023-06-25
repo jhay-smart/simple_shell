@@ -1,18 +1,18 @@
 #include "shell.h"
 
 /**
-* get_length - This helps to get the length of a number.
+* get_len - This helps to get the length of a number.
 * @num: This type int number.
 * Return: Length of the number.
 */
 int get_len(int num)
 {
 unsigned int num1;
-int lenght = 1;
+int length = 1;
 
 if (num < 0)
 {
-lenght++;
+length++;
 num1 = num * -1;
 }
 else
@@ -21,12 +21,13 @@ num1 = num;
 }
 while (num1 > 9)
 {
-lenght++;
+length++;
 num1 = num1 / 10;
 }
 
-return (lenght);
+return (length);
 }
+
 /**
 * aux_itoa - function converts int to string.
 * @num: type int number
@@ -35,14 +36,14 @@ return (lenght);
 char *aux_itoa(int num)
 {
 unsigned int num1;
-int lenght = get_len(num);
+int length = get_len(num);
 char *buffer;
 
-buffer = malloc(sizeof(char) * (lenght + 1));
-if (buffer == 0)
+buffer = malloc(sizeof(char) * (length + 1));
+if (buffer == NULL)
 return (NULL);
 
-*(buffer + lenght) = '\0';
+buffer[length] = '\0';
 
 if (num < 0)
 {
@@ -54,14 +55,13 @@ else
 num1 = num;
 }
 
-lenght--;
+length--;
 do {
-*(buffer + lenght) = (num1 % 10) + '0';
+buffer[length] = (num1 % 10) + '0';
 num1 = num1 / 10;
-lenght--;
-}	
-while (num1 > 0);
-{
+length--;
+} while (num1 > 0);
+
 return (buffer);
 }
 
@@ -73,14 +73,13 @@ return (buffer);
 int _atoi(char *w)
 {
 unsigned int count = 0, size = 0, oi = 0, pn = 1, m = 1, i;
+
 while (*(w + count) != '\0')
 {
 if (size > 0 && (*(w + count) < '0' || *(w + count) > '9'))
 break;
-
 if (*(w + count) == '-')
 pn *= -1;
-
 if ((*(w + count) >= '0') && (*(w + count) <= '9'))
 {
 if (size > 0)
@@ -91,8 +90,9 @@ count++;
 }
 for (i = count - size; i < count; i++)
 {
-oi = oi + ((*(w + i) - 48) *m);
+oi = oi + ((*(w + i) - '0') * m);
 m /= 10;
 }
-return (oi * pn);
+return (oi *pn);
 }
+
