@@ -59,9 +59,9 @@ do {
 *(buffer + lenght) = (num1 % 10) + '0';
 num1 = num1 / 10;
 lenght--;
-}	while 
-
-(num1 > 0);
+}	
+while (num1 > 0);
+{
 return (buffer);
 }
 
@@ -73,7 +73,6 @@ return (buffer);
 int _atoi(char *w)
 {
 unsigned int count = 0, size = 0, oi = 0, pn = 1, m = 1, i;
-
 while (*(w + count) != '\0')
 {
 if (size > 0 && (*(w + count) < '0' || *(w + count) > '9'))
@@ -90,10 +89,9 @@ size++;
 }
 count++;
 }
-
 for (i = count - size; i < count; i++)
 {
-oi = oi + ((*(w + i) - 48) * m);
+oi = oi + ((*(w + i) - 48) *m);
 m /= 10;
 }
 return (oi * pn);
