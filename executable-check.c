@@ -32,7 +32,7 @@ int is_cdir(char *path, int *j)
 char *_which(char *cmd, char **_environ)
 {
 	char *path, *ptr_path, *token_path, *dir;
-	int len_dir, len_cmd, j;
+	int len_dir, len_cmd;
 	struct stat st;
 
 	path = _getenv("PATH", _environ);
