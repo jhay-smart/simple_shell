@@ -176,7 +176,7 @@ int _setenv(data_shell *datash);
 int _unsetenv(data_shell *datash);
 
 /* cd-command.c */
-void cd_dot(data_shell *datash);
+void cd_dots(data_shell *datash);
 void cd_to(data_shell *datash);
 void cd_previous(data_shell *datash);
 void cd_to_home(data_shell *datash);
