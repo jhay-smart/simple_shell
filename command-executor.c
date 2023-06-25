@@ -148,7 +148,7 @@ while (list_l != NULL)
 {
 datash->input = list_l->line;
 datash->args = split_line(datash->input);
-loop = exec_line(datash);
+loop = executor(datash);
 free(datash->args);
 
 if (loop == 0)

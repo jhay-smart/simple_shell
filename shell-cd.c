@@ -34,7 +34,7 @@ return (1);
 
 if (_strcmp(".", dir) == 0 || _strcmp("..", dir) == 0)
 {
-cd_dot(datash);
+cd_dots(datash);
 return (1);
 }
 
