@@ -36,7 +36,8 @@ datash->args = NULL;
 datash->status = 0;
 datash->counter = 1;
 
-for (x = 0; environ[x]; x++);
+for (x = 0; environ[x]; x++)
+;
 
 datash->_environ = malloc(sizeof(char *) * (x + 1));
 
